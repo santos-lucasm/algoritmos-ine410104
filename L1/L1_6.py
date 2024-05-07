@@ -13,6 +13,7 @@ def test_number_pair(n1: int, n2: int):
     if(n1 == n2):
         return n1 
     return False
+#   TODO: Fix this function to use the snippet code somehow
 #    res = subprocess.getoutput(f"./tester {n1} {n2}")
 #    if int(res.strip()) == 1:
 #        print("Equivalentes")
@@ -29,10 +30,7 @@ def verify_set(numbers: list):
     right = numbers[len(numbers)//2:]
     left_result = verify_set(left)
     right_result = verify_set(right)
-    
-    print("{} RESULT: {}".format(left, left_result))
-    print("{} RESULT: {}".format(right, right_result))
-
+   
     if left_result == right_result:
         return left_result
 
@@ -45,10 +43,14 @@ def verify_set(numbers: list):
         return right_result
     return -1
 
-if __name__ == "__main__":
-    input_set = sys.argv[1:]
+def test_procedure(input_set):
     if(math.log2(len(input_set)).is_integer() == True):
-        print(verify_set(input_set))
+        result = verify_set(input_set)
+        return result 
     else:
         print("Invalid set")
+        return -1
+
+if __name__ == "__main__":
+    print(test_procedure(sys.argv[1:]))
 
