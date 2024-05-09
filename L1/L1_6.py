@@ -11,6 +11,7 @@ def count_occurrences(arr, num):
 
 def test_number_pair(n1: int, n2: int):
     res = subprocess.getoutput(f"./tester {n1} {n2}")
+    # res = subprocess.getoutput(f"python3 tester-descomprimido.py {n1} {n2}")
     if(int(res.strip()) == 1):
         return 1
     return 0
@@ -34,15 +35,14 @@ def verify_set(numbers: list):
         return left_result
     if right_count > len(numbers) // 2:
         return right_result
-    return -1
+    return 0
 
 def test_procedure(input_set):
     if(math.log2(len(input_set)).is_integer() == True):
         result = verify_set(input_set)
         return result 
     else:
-        print("Invalid set")
-        return -1
+        return 0
 
 if __name__ == "__main__":
     print(test_procedure(sys.argv[1:]))
