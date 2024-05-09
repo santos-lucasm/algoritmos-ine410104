@@ -10,21 +10,14 @@ def count_occurrences(arr, num):
     return count
 
 def test_number_pair(n1: int, n2: int):
-    if(n1 == n2):
-        return n1 
-    return False
-#   TODO: Fix this function to use the snippet code somehow
-#    res = subprocess.getoutput(f"./tester {n1} {n2}")
-#    if int(res.strip()) == 1:
-#        print("Equivalentes")
-#    else:
-#        print("Nao equivalentes")
-#
+    res = subprocess.getoutput(f"./tester {n1} {n2}")
+    if(int(res.strip()) == 1):
+        return 1
+    return 0
 
 def verify_set(numbers: list):
     if(len(numbers) == 2):
-        return numbers[0]
-        #test_number_pair(int(numbers[0]), int(numbers[1]))
+        return test_number_pair(numbers[0], numbers[1])
 
     left = numbers[:len(numbers)//2]
     right = numbers[len(numbers)//2:]
